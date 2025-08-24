@@ -1,0 +1,115 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { logoutUser } from '../utils/authApiClient';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { LiaUserCircle } from "react-icons/lia";
+import { useAuth } from '../context/AuthContext';
+import { useState } from 'react';
+import { FaBars, FaTimes } from "react-icons/fa";
+
+const Navbar = () => {
+    const { isAuthenticated, loading, logout, user } = useAuth();
+    const navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleLogout = async () => {
+        await logout();
+        toast.success("Logged out successfully", { theme: 'dark' });
+        navigate('/login');
+    };
+
+    if (loading) return null;
+
+    return (
+        <>
+            <ToastContainer position="top-right" autoClose={3000} theme="dark" />
+            <nav className='bg-slate-800 text-white'>
+                <div className="mycontainer flex justify-between items-center px-4 py-5 h-14">
+
+                    <div className="logo font-bold text-white text-2xl">
+                        <span className='text-green-500'>&lt;</span>
+                        <span>Pass</span><span className='text-green-500'>OP/&gt;</span>
+                    </div>
+                    
+                    <div className="md:hidden z-50" onClick={() => setIsOpen(!isOpen)}>
+                        {isOpen ? (
+                            <FaTimes className="text-2xl text-white cursor-pointer" />
+                        ) : (
+                            <FaBars className="text-2xl text-white cursor-pointer" />
+                        )}
+                    </div>
+
+                    <div className={`flex-col md:flex-row gap-4 md:gap-4 justify-center items-center absolute md:static top-14 left-0 w-full md:w-auto bg-slate-800 md:bg-transparent px-6 py-4 md:p-0 transition-all duration-300 ease-in-out
+                        ${isOpen ? 'flex' : 'hidden'} md:flex`}>
+                        
+                        <Link
+                            to="/subscription"
+                            onClick={() => setIsOpen(false)}
+                            className='hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer'
+                        >
+                            Subscription
+                        </Link>
+
+                        {isAuthenticated ? (
+                            <button
+                                onClick={() => {
+                                    handleLogout();
+                                    setIsOpen(false);
+                                }}
+                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer"
+                            >
+                                Logout
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => {
+                                    navigate('/login');
+                                    setIsOpen(false);
+                                }}
+                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer"
+                            >
+                                Login
+                            </button>
+                        )}
+
+                        {isAuthenticated && user.isAdmin && (
+                            <button
+                                onClick={() => {
+                                    navigate('/dashboard');
+                                    setIsOpen(false);
+                                }}
+                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer"
+                            >
+                                Dashboard
+                            </button>
+                        )}
+
+                        {isAuthenticated ? (
+                            <button
+                                className='cursor-pointer'
+                                onClick={() => {
+                                    navigate('/user');
+                                    setIsOpen(false);
+                                }}
+                            >
+                                <LiaUserCircle className='p-1 text-5xl text-slate-300 hover:text-slate-400' />
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => {
+                                    navigate('/register');
+                                    setIsOpen(false);
+                                }}
+                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer"
+                            >
+                                Register
+                            </button>
+                        )}
+                    </div>
+                </div>
+            </nav>
+        </>
+    );
+};
+
+export default Navbar;
