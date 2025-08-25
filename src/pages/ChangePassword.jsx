@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ChangePassword = () => {
 
-
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');

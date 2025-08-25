@@ -114,7 +114,7 @@ const Register = () => {
             Already have an account?{' '}
             <Link to="/login" className="text-green-600 hover:underline">Login</Link>
           </p>
-          <button onClick={() => window.location.href = "https://passop-ovla.onrender.com/api/auth/google"}
+          <button onClick={() => window.location.href = `${import.meta.env.VITE_API_BASE_URL}/api/auth/google`}
             className="w-full py-2 mt-4 bg-green-500 text-white rounded-full hover:bg-green-600 transition-all duration-200">
             Sign in with Google
           </button>
