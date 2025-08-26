@@ -5,3 +5,7 @@
         @apply container px-40 mx-auto; 
     }
 }
+
+*{
+    scroll-behavior: smooth;
+}
