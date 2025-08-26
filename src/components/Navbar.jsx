@@ -26,11 +26,11 @@ const Navbar = () => {
             <nav className='bg-slate-800 text-white'>
                 <div className="mycontainer flex justify-between items-center px-4 py-5 h-14">
 
-                    <div className="logo font-bold text-white text-2xl">
+                    <div className="logo font-bold text-white text-2xl cursor-pointer" onClick={() => navigate('/')}>
                         <span className='text-green-500'>&lt;</span>
                         <span>Pass</span><span className='text-green-500'>OP/&gt;</span>
                     </div>
-                    
+
                     <div className="md:hidden z-50" onClick={() => setIsOpen(!isOpen)}>
                         {isOpen ? (
                             <FaTimes className="text-2xl text-white cursor-pointer" />
@@ -41,7 +41,7 @@ const Navbar = () => {
 
                     <div className={`flex-col md:flex-row gap-4 md:gap-4 justify-center items-center absolute md:static top-14 left-0 w-full md:w-auto bg-slate-800 md:bg-transparent px-6 py-4 md:p-0 transition-all duration-300 ease-in-out
                         ${isOpen ? 'flex' : 'hidden'} md:flex`}>
-                        
+
                         <Link
                             to="/subscription"
                             onClick={() => setIsOpen(false)}
