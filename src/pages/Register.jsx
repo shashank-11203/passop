@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { registerUser } from '../utils/authApiClient'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ const Register = () => {
         pauseOnHover
         theme="dark"
       />
-      <div className="min-h-screen flex items-center justify-center bg-green-50 px-4 my-2">
+      <div className="min-h-[84vh] flex items-center justify-center bg-green-50 px-4 my-2">
         <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-lg border border-green-200">
           <h2 className="text-3xl font-bold text-center text-green-700 mb-4">Register</h2>
           <p className="text-center text-gray-500 mb-6">Create your PassOP account</p>
@@ -105,17 +106,18 @@ const Register = () => {
             </div>
             <button
               type="submit"
-              className="w-full py-2 mt-4 bg-green-500 text-white rounded-full hover:bg-green-600 transition-all duration-200"
+              className="w-full py-2 mt-4 bg-green-500 text-white rounded-full hover:bg-green-600 transition-all duration-200 cursor-pointer"
             >
               Register
             </button>
           </form>
           <p className="text-center text-sm text-gray-500 mt-4">
             Already have an account?{' '}
-            <Link to="/login" className="text-green-600 hover:underline">Login</Link>
+            <Link to="/login" className="text-green-600 hover:underline cursor-pointer">Login</Link>
           </p>
           <button onClick={() => window.location.href = `${import.meta.env.VITE_API_BASE_URL}/api/auth/google`}
-            className="w-full py-2 mt-4 bg-green-500 text-white rounded-full hover:bg-green-600 transition-all duration-200">
+            className="w-full py-2 mt-4 bg-green-500 text-white rounded-full hover:bg-green-600 transition-all duration-200 flex items-center justify-center gap-4 cursor-pointer">
+            <span><FcGoogle className='text-2xl' /></span>
             Sign in with Google
           </button>
 

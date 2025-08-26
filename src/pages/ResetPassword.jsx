@@ -32,7 +32,7 @@ const ResetPassword = () => {
     return (
         <>
             <ToastContainer closeOnClick />
-            <div className="min-h-screen flex items-center justify-center bg-green-50 px-4 my-2">
+            <div className="min-h-[84vh] flex items-center justify-center bg-green-50 px-4 my-2">
                 <form onSubmit={handleReset} className="max-w-md w-full bg-white p-6 rounded shadow-md">
                     <h2 className="text-2xl font-bold mb-4">Reset Your Password</h2>
                     <input

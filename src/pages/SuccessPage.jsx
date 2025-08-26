@@ -38,7 +38,7 @@ const SuccessPage = () => {
             <div className="absolute inset-0 -z-10 h-full w-full bg-green-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
                 <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-green-400 opacity-20 blur-[100px]" />
             </div>
-            <div className="flex flex-col items-center justify-center h-screen">
+            <div className="flex flex-col items-center justify-center min-h-[84vh]">
                 <h1 className="text-3xl font-bold text-green-600 mb-4">🎉 Payment Successful!</h1>
                 <Spinner />
                 <p className="text-gray-700">Upgrading your account... Please wait.</p>
