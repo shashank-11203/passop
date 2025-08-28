@@ -92,8 +92,8 @@ const UserPage = () => {
 
             <div className="mb-10 overflow-x-auto">
               <h2 className="text-2xl font-semibold text-white mb-4">🧾 Recently Updated Passwords</h2>
-              <table className="min-w-full bg-white border border-gray-300 rounded-lg">
-                <thead className="bg-gray-900 text-white">
+              <table className="min-w-full bg-white border border-gray-300 rounded-lg bg-gray-900">
+                <thead className=" text-white">
                   <tr>
                     <th className="text-left py-3 px-5 text-white">Site</th>
                     <th className="text-left py-3 px-5 text-white">Last Updated</th>
