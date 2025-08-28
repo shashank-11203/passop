@@ -57,92 +57,94 @@ const UserPage = () => {
 
   return (
     <>
-      <div className="absolute inset-0 -z-10 h-full- w-full bg-green-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-green-400 opacity-20 blur-[100px]" />
-      </div>
-      <div className="min-h-screen px-4 py-6">
-        <div className="max-w-5xl mx-auto rounded-2xl shadow-lg p-6 md:p-10">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">👤 User Profile</h1>
+      <div className="relative isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
+        <div aria-hidden="true" className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl">
+          <div style={{ clipPath: "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" }} className="mx-auto aspect-1155/678 w-288.75 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20"></div>
+        </div>
+        <div className="min-h-screen px-4 py-6">
+          <div className="max-w-5xl mx-auto rounded-2xl shadow-lg p-6 md:p-10">
+            <h1 className="text-3xl font-bold text-center mb-8 text-white">👤 User Profile</h1>
 
-          <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
-            <img src={'/icons/profile.png'} alt="User Icon" className="w-28 h-28" />
-            <div className="text-center md:text-left">
-              <p className="text-xl font-semibold text-gray-800">
-                Username: <span className="text-blue-600">{user.username}</span>
-              </p>
-              <p className="text-lg text-gray-600">Email: {user.email}</p>
-              <p className="text-lg text-gray-600">
-                Subscription:
-                <span className={`ml-2 px-3 py-1 text-center rounded-full text-white text-sm ${user.role === 'premium' ? 'bg-green-600' : 'bg-gray-400'}`}>
-                  {user.role}
-                </span>
-              </p>
+            <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
+              <img src={'/icons/profile.png'} alt="User Icon" className="w-28 h-28" />
+              <div className="text-center md:text-left">
+                <p className="text-xl font-semibold text-white">
+                  Username: <span className="text-blue-600">{user.username}</span>
+                </p>
+                <p className="text-lg text-white">Email: {user.email}</p>
+                <p className="text-lg text-white">
+                  Subscription:
+                  <span className={`ml-2 px-3 py-1 text-center rounded-full text-white text-sm ${user.role === 'premium' ? 'bg-indigo-600' : 'bg-gray-400'}`}>
+                    {user.role}
+                  </span>
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="flex justify-center mb-10">
-            <button
-              onClick={() => navigate("/user/changepassword")}
-              className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-6 py-3 rounded-full font-semibold shadow-md transition-all duration-300 cursor-pointer"
-            >
-              🔐 Change Password
-            </button>
-          </div>
+            <div className="flex justify-center mb-10">
+              <button
+                onClick={() => navigate("/user/changepassword")}
+                className="bg-indigo-500 hover:bg-indigo-400 text-white px-6 py-3 rounded-full font-semibold shadow-md transition-all duration-300 cursor-pointer"
+              >
+                🔐 Change Password
+              </button>
+            </div>
 
-          <div className="mb-10 overflow-x-auto">
-            <h2 className="text-2xl font-semibold text-gray-700 mb-4">🧾 Recently Updated Passwords</h2>
-            <table className="min-w-full bg-white border border-gray-300 rounded-lg">
-              <thead className="bg-blue-100 text-gray-700">
-                <tr>
-                  <th className="text-left py-3 px-5">Site</th>
-                  <th className="text-left py-3 px-5">Last Updated</th>
-                </tr>
-              </thead>
-              <tbody>
-                {passwords.length === 0 ? (
-                  <tr>
-                    <td className="py-4 px-5 text-gray-500" colSpan="2">No passwords found.</td>
-                  </tr>
-                ) : (
-                  passwords.map((pwd) => (
-                    <tr key={pwd._id} className="border-t border-gray-200">
-                      <td className="py-3 px-5">{pwd.site}</td>
-                      <td className="py-3 px-5 text-gray-600">{calculateDaysAgo(pwd.updatedAt)}</td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="rounded-2xl">
-            <h2 className="text-2xl font-semibold text-gray-700 mb-4">💳 Payment History</h2>
-
-            {subscriptions.length === 0 ? (<p>You have not upgraded to any premium subscription. Click here to get <span><Link className="text-green-500 underline" to={'/subscription'}>subsciption</Link></span></p>
-            ) : (
+            <div className="mb-10 overflow-x-auto">
+              <h2 className="text-2xl font-semibold text-white mb-4">🧾 Recently Updated Passwords</h2>
               <table className="min-w-full bg-white border border-gray-300 rounded-lg">
-                <thead className="bg-blue-100 text-gray-700">
+                <thead className="bg-gray-900 text-white">
                   <tr>
-                    <th className="py-3 px-5 text-left">Plan</th>
-                    <th className="py-3 px-5 text-left">Price</th>
-                    <th className="py-3 px-5 text-left">Status</th>
-                    <th className="py-3 px-5 text-left">Purchased On</th>
+                    <th className="text-left py-3 px-5 text-white">Site</th>
+                    <th className="text-left py-3 px-5 text-white">Last Updated</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {subscriptions.map((sub) => (
-                    <tr key={sub._id} className="border-t border-gray-200">
-                      <td className="py-3 px-5">{sub.plan}</td>
-                      <td className="py-3 px-5">₹ 299</td>
-                      <td className="py-3 px-5">{sub.status}</td>
-                      <td className="py-3 px-5">{new Date(sub.createdAt).toLocaleDateString()}</td>
+                  {passwords.length === 0 ? (
+                    <tr>
+                      <td className="py-4 px-5 text-white" colSpan="2">No passwords found.</td>
                     </tr>
-                  ))}
+                  ) : (
+                    passwords.map((pwd) => (
+                      <tr key={pwd._id} className="border-t border-gray-200">
+                        <td className="py-3 px-5 text-white">{pwd.site}</td>
+                        <td className="py-3 px-5 text-white">{calculateDaysAgo(pwd.updatedAt)}</td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
+              </table>
+            </div>
 
-              </table>)}
+            <div className="rounded-2xl">
+              <h2 className="text-2xl font-semibold text-white mb-4">💳 Payment History</h2>
+
+              {subscriptions.length === 0 ? (<p className="text-white">You have not upgraded to any premium subscription. Click here to get <span><Link className="text-indigo-500 underline" to={'/subscription'}>subsciption</Link></span></p>
+              ) : (
+                <table className="min-w-full bg-white border border-gray-300 rounded-lg">
+                  <thead className="bg-gray-900 text-white">
+                    <tr className="text-white">
+                      <th className="py-3 px-5 text-left">Plan</th>
+                      <th className="py-3 px-5 text-left">Price</th>
+                      <th className="py-3 px-5 text-left">Status</th>
+                      <th className="py-3 px-5 text-left">Purchased On</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {subscriptions.map((sub) => (
+                      <tr key={sub._id} className="border-t border-gray-200 text-white">
+                        <td className="py-3 px-5">{sub.plan}</td>
+                        <td className="py-3 px-5">₹ 299</td>
+                        <td className="py-3 px-5">{sub.status}</td>
+                        <td className="py-3 px-5">{new Date(sub.createdAt).toLocaleDateString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+
+                </table>)}
+            </div>
+
           </div>
-
         </div>
       </div>
     </>
