@@ -59,7 +59,7 @@ const Subscription = () => {
         pauseOnHover
         theme="dark"
       />
-      <div className="absolute inset-0 -z-10 h-full w-full bg-green-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+      {/* <div className="absolute inset-0 -z-10 h-full w-full bg-green-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-green-400 opacity-20 blur-[100px]" />
       </div>
       <div className="min-h-[84vh] py-12 px-4">
@@ -97,7 +97,7 @@ const Subscription = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div className="relative isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
         <div aria-hidden="true" className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl">
@@ -141,7 +141,7 @@ const Subscription = () => {
                 24-hour support response time
               </li>
             </ul>
-            <button aria-describedby="tier-hobby" className="mt-8 block rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/75 sm:mt-10 bg-indi w-full" onClick={() => { handleSubscribe("basic") }}>Get started today</button>
+            <button aria-describedby="tier-hobby" className="mt-8 block rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/75 sm:mt-10 bg-indi w-full cursor-pointer" onClick={() => { handleSubscribe("basic") }}>Get started today</button>
           </div>
           <div className="relative rounded-3xl bg-gray-800 p-8 ring-1 ring-white/10 sm:p-10">
             <h3 id="tier-enterprise" className="text-base/7 font-semibold text-indigo-400 h-16">Premium</h3>
@@ -182,7 +182,7 @@ const Subscription = () => {
                 24-hours support response time
               </li>
             </ul>
-            <button aria-describedby="tier-hobby" className="mt-8 block rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/75 sm:mt-10 bg-indi w-full" onClick={() => { handleSubscribe("premium") }}>Get started today</button>
+            <button aria-describedby="tier-hobby" className="mt-8 block rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/75 sm:mt-10 bg-indi w-full cursor-pointer" onClick={() => { handleSubscribe("premium") }}>Get started today</button>
           </div>
         </div>
       </div>

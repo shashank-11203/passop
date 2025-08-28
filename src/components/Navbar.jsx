@@ -23,12 +23,12 @@ const Navbar = () => {
     return (
         <>
             <ToastContainer position="top-right" autoClose={3000} theme="dark" />
-            <nav className='bg-slate-800 text-white'>
+            <nav className='bg-slate-800 text-white py-1'>
                 <div className="mycontainer flex justify-between items-center px-4 py-5 h-14">
 
                     <div className="logo font-bold text-white text-2xl cursor-pointer" onClick={() => navigate('/')}>
-                        <span className='text-green-500'>&lt;</span>
-                        <span>Pass</span><span className='text-green-500'>OP/&gt;</span>
+                        <span className='text-indigo-500'>&lt;</span>
+                        <span>Pass</span><span className='text-indigo-500'>OP/&gt;</span>
                     </div>
 
                     <div className="md:hidden z-50" onClick={() => setIsOpen(!isOpen)}>

@@ -4,9 +4,9 @@ const Footer = () => {
     return (
         <footer className='bg-slate-800 text-white flex flex-col items-center justify-center w-full py-2'>
             <div className='logo font-bold text-2xl'>
-                <span className='text-green-500'>&lt;</span>
+                <span className='text-indigo-500'>&lt;</span>
                 Pass
-                <span className='text-green-500'>OP/&gt;</span>
+                <span className='text-indigo-500'>OP/&gt;</span>
             </div>
         </footer>
     )
