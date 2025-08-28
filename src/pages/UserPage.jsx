@@ -92,7 +92,7 @@ const UserPage = () => {
 
             <div className="mb-10 overflow-x-auto">
               <h2 className="text-2xl font-semibold text-white mb-4">🧾 Recently Updated Passwords</h2>
-              <table className="min-w-full bg-white border border-gray-300 rounded-lg bg-gray-900">
+              <table className="min-w-full border border-gray-300 rounded-lg bg-gray-900">
                 <thead className=" text-white">
                   <tr>
                     <th className="text-left py-3 px-5 text-white">Site</th>
@@ -121,7 +121,7 @@ const UserPage = () => {
 
               {subscriptions.length === 0 ? (<p className="text-white">You have not upgraded to any premium subscription. Click here to get <span><Link className="text-indigo-500 underline" to={'/subscription'}>subsciption</Link></span></p>
               ) : (
-                <table className="min-w-full bg-white border border-gray-300 rounded-lg">
+                <table className="min-w-full border-gray-300 rounded-lg bg-gray-900">
                   <thead className="bg-gray-900 text-white">
                     <tr className="text-white">
                       <th className="py-3 px-5 text-left">Plan</th>
