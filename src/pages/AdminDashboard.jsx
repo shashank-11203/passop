@@ -56,7 +56,7 @@ const AdminDashboard = () => {
   const chartData = [
     { label: "Users", count: userStats.totalUsers },
     { label: "Premium", count: userStats.premiumUsers },
-    { label: "Subscriptions", count: userStats.totalSubscriptions },
+    { label: "Basic", count: userStats.basicUsers },
   ];
 
   const StatCard = ({ label, value, color }) => (
