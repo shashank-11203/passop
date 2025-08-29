@@ -177,22 +177,22 @@ const Manager = () => {
 
                     <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 mt-6 items-center">
                         <input name="site" value={form.site} onChange={handleChange} placeholder="Enter website URL" type="text"
-                            className="w-full max-w-xl rounded-full border border-slate-300 px-4 py-2 text-white" />
+                            className="w-full max-w-xl rounded-full border border-slate-300 px-4 py-2 text-white bg-gray-900" />
 
                         <div className="flex flex-col md:flex-row gap-4 w-full max-w-xl">
                             <input name="username" value={form.username} onChange={handleChange} placeholder="Enter Username" type="text"
-                                className="flex-1 rounded-full border border-slate-300 px-4 py-2 text-white" />
+                                className="flex-1 rounded-full border border-slate-300 px-4 py-2 text-white bg-gray-900" />
 
                             <div className="relative flex-1">
                                 <input ref={passwordRef} name="password" value={form.password} onChange={handleChange} placeholder="Enter Password" type="password"
-                                    className="w-full rounded-full border border-slate-300 px-4 py-2 text-white" />
+                                    className="w-full rounded-full border border-slate-300 px-4 py-2 text-white bg-gray-900" />
                                 <span className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={showPassword}>
                                     <img ref={ref} src="icons/eye.png" alt="eye" className="w-6 h-6 invert" />
                                 </span>
                             </div>
                         </div>
 
-                        <button onClick={savePassword} className="flex items-center gap-2 bg-indigo-400 hover:bg-indigo-300 text-black px-6 py-2 rounded-full border border-indigo-900 cursor-pointer">
+                        <button onClick={savePassword} className="flex items-center gap-2 bg-indigo-400 hover:bg-indigo-300 text-black px-6 py-2 rounded-full border border-indigo-900 cursor-pointer font-medium">
                             <lord-icon src="https://cdn.lordicon.com/jgnvfzqg.json" trigger="hover" style={{ width: "25px", height: "25px" }}></lord-icon>
                             {editId ? "Update" : "Save"}
                         </button>
@@ -201,23 +201,23 @@ const Manager = () => {
                     <div className="mt-10 overflow-x-auto">
                         <div className='flex justify-between items-center mb-2'>
                             <h2 className="text-xl sm:text-2xl font-bold mb-4 text-white">Your Passwords</h2>
-                            <button className="flex items-center gap-2 bg-indigo-400 hover:bg-indigo-300 text-black px-6 py-2 rounded-full border border-indigo-900 cursor-pointer" onClick={() => handleExportPDF()}>Export as PDF</button>
+                            <button className="flex items-center gap-2 bg-indigo-400 hover:bg-indigo-300 text-black px-6 py-2 rounded-full border border-indigo-900 cursor-pointer font-medium" onClick={() => handleExportPDF()}>Export as PDF</button>
                         </div>
                         {passwordArray.length === 0 ? (
                             <p className='text-white'>No passwords to show</p>
                         ) : (
-                            <table className="min-w-full table-auto text-sm sm:text-base">
-                                <thead className="bg-indigo-800 text-white">
-                                    <tr>
-                                        <th className="px-2 py-2">Site</th>
+                            <table className="min-w-full table-auto text-white text-sm sm:text-base border-gray-300 bg-gray-900">
+                                <thead className="bg-gray-800 text-white border-gray-300">
+                                    <tr className='border-gray-300'>
+                                        <th className="px-2 py-2 ">Site</th>
                                         <th className="px-2 py-2">Username</th>
                                         <th className="px-2 py-2">Password</th>
                                         <th className="px-2 py-2">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody className="bg-indigo-100">
+                                <tbody className="bg-gray-900">
                                     {passwordArray.map((item) => (
-                                        <tr key={item._id} className="border-b border-white">
+                                        <tr key={item._id} className="border-b border-gray-300">
                                             <td className="px-2 py-2 text-center break-all">
                                                 <div className="flex justify-center items-center gap-2">
                                                     <a href={item.site} target="_blank" rel="noopener noreferrer">{item.site}</a>

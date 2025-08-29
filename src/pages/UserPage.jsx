@@ -93,15 +93,15 @@ const UserPage = () => {
             <div className="mb-10 overflow-x-auto">
               <h2 className="text-2xl font-semibold text-white mb-4">🧾 Recently Updated Passwords</h2>
               <table className="min-w-full border border-gray-300 rounded-lg bg-gray-900">
-                <thead className=" text-white">
-                  <tr>
+                <thead className=" text-white border-gray-300">
+                  <tr className="border-gray-300">
                     <th className="text-left py-3 px-5 text-white">Site</th>
                     <th className="text-left py-3 px-5 text-white">Last Updated</th>
                   </tr>
                 </thead>
                 <tbody>
                   {passwords.length === 0 ? (
-                    <tr>
+                    <tr className="border-gray-300">
                       <td className="py-4 px-5 text-white" colSpan="2">No passwords found.</td>
                     </tr>
                   ) : (
@@ -119,11 +119,11 @@ const UserPage = () => {
             <div className="rounded-2xl">
               <h2 className="text-2xl font-semibold text-white mb-4">💳 Payment History</h2>
 
-              {subscriptions.length === 0 ? (<p className="text-white">You have not upgraded to any premium subscription. Click here to get <span><Link className="text-indigo-500 underline" to={'/subscription'}>subsciption</Link></span></p>
+              {subscriptions.length === 0 ? (<p className="text-white">You have not upgraded to any premium subscription. Click here to get <span><Link className="text-indigo-500 underline cursor-pointer" to={'/subscription'}>subsciption</Link></span></p>
               ) : (
                 <table className="min-w-full border-gray-300 rounded-lg bg-gray-900">
-                  <thead className="bg-gray-900 text-white">
-                    <tr className="text-white">
+                  <thead className="bg-gray-900 text-white border-gray-300">
+                    <tr className="text-white border-gray-300">
                       <th className="py-3 px-5 text-left">Plan</th>
                       <th className="py-3 px-5 text-left">Price</th>
                       <th className="py-3 px-5 text-left">Status</th>
