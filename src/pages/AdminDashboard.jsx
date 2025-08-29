@@ -123,11 +123,11 @@ const AdminDashboard = () => {
                   <tbody>
                     {userStats.users.length === 0 ? (
                       <tr>
-                        <td className="py-4 px-5 text-gray-500" colSpan="5">No users found.</td>
+                        <td className="py-4 px-5 text-gray-300" colSpan="5">No users found.</td>
                       </tr>
                     ) : (
                       userStats.users.map((u) => (
-                        <tr key={u._id} className="border-t border-gray-200">
+                        <tr key={u._id} className="border-t border-gray-200 text-gray-400">
                           <td className="py-3 px-5">{u.username}</td>
                           <td className="py-3 px-5">{u.email}</td>
                           <td className="py-3 px-5 capitalize">{u.role}</td>
