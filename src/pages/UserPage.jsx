@@ -121,7 +121,7 @@ const UserPage = () => {
 
               {subscriptions.length === 0 ? (<p className="text-white">You have not upgraded to any premium subscription. Click here to get <span><Link className="text-indigo-500 underline cursor-pointer" to={'/subscription'}>subsciption</Link></span></p>
               ) : (
-                <table className="min-w-full border-gray-300 rounded-lg bg-gray-900">
+                <table className="min-w-full border border-gray-300 rounded-lg bg-gray-900">
                   <thead className="bg-gray-900 text-white border-gray-300">
                     <tr className="text-white border-gray-300">
                       <th className="py-3 px-5 text-left">Plan</th>

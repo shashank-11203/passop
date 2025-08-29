@@ -79,71 +79,76 @@ const AdminDashboard = () => {
         pauseOnHover
         theme="dark"
       />
-      <div className="min-h-screen bg-green-50 p-6">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Admin Dashboard</h1>
+      <div className="relative isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
+        <div aria-hidden="true" className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl">
+          <div style={{ clipPath: "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" }} className="mx-auto aspect-1155/678 w-288.75 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20"></div>
+        </div>
+        <div className="min-h-screen p-6">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-3xl font-bold text-white mb-6 text-center">Admin Dashboard</h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-            <StatCard label="Total Users" value={userStats.totalUsers} color="bg-blue-500" />
-            <StatCard label="Premium Users" value={userStats.premiumUsers} color="bg-green-500" />
-            <StatCard label="Basic Users" value={userStats.basicUsers} color="bg-gray-500" />
-            <StatCard label="Active Subscriptions" value={userStats.totalSubscriptions} color="bg-purple-500" />
-          </div>
-
-          <div className="bg-white rounded-xl shadow-md p-6 mb-10">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">📊 Users vs Subscriptions</h2>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="label" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="count" fill="#4F46E5" />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-md p-6">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">📄 All Users</h2>
-            <div className="overflow-x-auto">
-              <table className="min-w-full table-auto border border-gray-200">
-                <thead className="bg-blue-100 text-gray-700">
-                  <tr>
-                    <th className="py-3 px-5 text-left">Username</th>
-                    <th className="py-3 px-5 text-left">Email</th>
-                    <th className="py-3 px-5 text-left">Role</th>
-                    <th className="py-3 px-5 text-left">Created</th>
-                    <th className="py-3 px-5 text-left">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {userStats.users.length === 0 ? (
-                    <tr>
-                      <td className="py-4 px-5 text-gray-500" colSpan="5">No users found.</td>
-                    </tr>
-                  ) : (
-                    userStats.users.map((u) => (
-                      <tr key={u._id} className="border-t border-gray-200">
-                        <td className="py-3 px-5">{u.username}</td>
-                        <td className="py-3 px-5">{u.email}</td>
-                        <td className="py-3 px-5 capitalize">{u.role}</td>
-                        <td className="py-3 px-5">{new Date(u.createdAt).toLocaleDateString()}</td>
-                        <td className="py-3 px-5">
-                          <button
-                            onClick={() => handleDeleteUser(u._id)}
-                            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer"
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+              <StatCard label="Total Users" value={userStats.totalUsers} color="bg-blue-500" />
+              <StatCard label="Premium Users" value={userStats.premiumUsers} color="bg-green-500" />
+              <StatCard label="Basic Users" value={userStats.basicUsers} color="bg-gray-500" />
+              <StatCard label="Active Subscriptions" value={userStats.totalSubscriptions} color="bg-purple-500" />
             </div>
-          </div>
 
+            <div className="bg-white rounded-xl shadow-md p-6 mb-10">
+              <h2 className="text-xl font-semibold text-gray-500 mb-4">📊 Users vs Subscriptions</h2>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={chartData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="label" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="count" fill="#4F46E5" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h2 className="text-xl font-semibold text-gray-500 mb-4">📄 All Users</h2>
+              <div className="overflow-x-auto">
+                <table className="min-w-full table-auto border border-gray-900">
+                  <thead className="bg-gray-900 text-gray-500">
+                    <tr>
+                      <th className="py-3 px-5 text-left">Username</th>
+                      <th className="py-3 px-5 text-left">Email</th>
+                      <th className="py-3 px-5 text-left">Role</th>
+                      <th className="py-3 px-5 text-left">Created</th>
+                      <th className="py-3 px-5 text-left">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {userStats.users.length === 0 ? (
+                      <tr>
+                        <td className="py-4 px-5 text-gray-500" colSpan="5">No users found.</td>
+                      </tr>
+                    ) : (
+                      userStats.users.map((u) => (
+                        <tr key={u._id} className="border-t border-gray-200">
+                          <td className="py-3 px-5">{u.username}</td>
+                          <td className="py-3 px-5">{u.email}</td>
+                          <td className="py-3 px-5 capitalize">{u.role}</td>
+                          <td className="py-3 px-5">{new Date(u.createdAt).toLocaleDateString()}</td>
+                          <td className="py-3 px-5">
+                            <button
+                              onClick={() => handleDeleteUser(u._id)}
+                              className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-400 cursor-pointer"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </>
