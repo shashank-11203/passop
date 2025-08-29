@@ -94,7 +94,7 @@ const AdminDashboard = () => {
               <StatCard label="Active Subscriptions" value={userStats.totalSubscriptions} color="bg-purple-500" />
             </div>
 
-            <div className="bg-white rounded-xl shadow-md p-6 mb-10">
+            <div className="rounded-xl shadow-md p-6 mb-10">
               <h2 className="text-xl font-semibold text-gray-500 mb-4">📊 Users vs Subscriptions</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={chartData}>
@@ -107,7 +107,7 @@ const AdminDashboard = () => {
               </ResponsiveContainer>
             </div>
 
-            <div className="bg-white rounded-xl shadow-md p-6">
+            <div className="rounded-xl shadow-md p-6">
               <h2 className="text-xl font-semibold text-gray-500 mb-4">📄 All Users</h2>
               <div className="overflow-x-auto">
                 <table className="min-w-full table-auto border border-gray-900">
