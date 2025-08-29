@@ -105,7 +105,7 @@ const Subscription = () => {
         </div>
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-base/7 font-semibold text-indigo-400">Pricing</h2>
-          <p className="mt-2 text-5xl font-semibold tracking-tight text-balance text-white sm:text-6xl">Choose Your Plan</p>
+          <p className="mt-2 text-5xl font-semibold tracking-tight text-balance text-white sm:text-6xl">Choose Your Subscription</p>
         </div>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
           <div className="rounded-3xl rounded-t-3xl bg-white/2.5 p-8 ring-1 ring-white/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-tr-none lg:rounded-bl-3xl">

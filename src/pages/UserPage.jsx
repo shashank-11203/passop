@@ -130,9 +130,9 @@ const UserPage = () => {
                       <th className="py-3 px-5 text-left">Purchased On</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody className="border-gray-300">
                     {subscriptions.map((sub) => (
-                      <tr key={sub._id} className="border-t border-gray-200 text-white">
+                      <tr key={sub._id} className="border-t border-gray-300 text-white">
                         <td className="py-3 px-5">{sub.plan}</td>
                         <td className="py-3 px-5">₹ 299</td>
                         <td className="py-3 px-5">{sub.status}</td>

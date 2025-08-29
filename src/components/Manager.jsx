@@ -222,7 +222,7 @@ const Manager = () => {
                                                 <div className="flex justify-center items-center gap-2">
                                                     <a href={item.site} target="_blank" rel="noopener noreferrer">{item.site}</a>
                                                     <div onClick={() => copyText(item.site)} className="cursor-pointer">
-                                                        <lord-icon src="https://cdn.lordicon.com/iykgtsbt.json" trigger="hover" style={{ width: "25px", height: "25px" }}></lord-icon>
+                                                        <lord-icon src="https://cdn.lordicon.com/iykgtsbt.json" trigger="hover" className="invert" style={{ width: "25px", height: "25px" }}></lord-icon>
                                                     </div>
                                                 </div>
                                             </td>
@@ -230,7 +230,7 @@ const Manager = () => {
                                                 <div className="flex justify-center items-center gap-2">
                                                     <span>{item.username}</span>
                                                     <div onClick={() => copyText(item.username)} className="cursor-pointer">
-                                                        <lord-icon src="https://cdn.lordicon.com/iykgtsbt.json" trigger="hover" style={{ width: "25px", height: "25px" }}></lord-icon>
+                                                        <lord-icon src="https://cdn.lordicon.com/iykgtsbt.json" trigger="hover" className="invert" style={{ width: "25px", height: "25px" }}></lord-icon>
                                                     </div>
                                                 </div>
                                             </td>
@@ -240,20 +240,20 @@ const Manager = () => {
                                                         {visiblePasswordIds.includes(item._id) ? item.password : "••••••••"}
                                                     </span>
                                                     <span onClick={() => togglePasswordVisibility(item._id)} className="cursor-pointer">
-                                                        <img src={visiblePasswordIds.includes(item._id) ? "icons/eyecross.png" : "icons/eye.png"} alt="eye" className="w-6 h-6" />
+                                                        <img src={visiblePasswordIds.includes(item._id) ? "icons/eyecross.png" : "icons/eye.png"} alt="eye" className="w-6 h-6 invert" />
                                                     </span>
                                                     <div onClick={() => copyText(item.password)} className="cursor-pointer">
-                                                        <lord-icon src="https://cdn.lordicon.com/iykgtsbt.json" trigger="hover" style={{ width: "25px", height: "25px" }}></lord-icon>
+                                                        <lord-icon src="https://cdn.lordicon.com/iykgtsbt.json" trigger="hover" className="invert" style={{ width: "25px", height: "25px" }}></lord-icon>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-2 py-2 text-center">
                                                 <div className="flex justify-center gap-2">
                                                     <span onClick={() => editPassword(item._id)} className="cursor-pointer">
-                                                        <lord-icon src="https://cdn.lordicon.com/gwlusjdu.json" trigger="hover" style={{ width: "25px", height: "25px" }}></lord-icon>
+                                                        <lord-icon src="https://cdn.lordicon.com/gwlusjdu.json" trigger="hover" className="invert" style={{ width: "25px", height: "25px" }}></lord-icon>
                                                     </span>
                                                     <span onClick={() => deletePassword(item._id)} className="cursor-pointer">
-                                                        <lord-icon src="https://cdn.lordicon.com/skkahier.json" trigger="hover" style={{ width: "25px", height: "25px" }}></lord-icon>
+                                                        <lord-icon src="https://cdn.lordicon.com/skkahier.json" trigger="hover" className="invert" style={{ width: "25px", height: "25px" }}></lord-icon>
                                                     </span>
                                                 </div>
                                             </td>
