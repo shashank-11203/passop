@@ -1,5 +1,4 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { logoutUser } from '../utils/authApiClient';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LiaUserCircle } from "react-icons/lia";
@@ -22,8 +21,18 @@ const Navbar = () => {
 
     return (
         <>
-            <ToastContainer position="top-right" autoClose={3000} theme="dark" />
-            <nav className='bg-slate-800 text-white py-1'>
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={true}
+                closeOnClick
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
+            <nav className='bg-slate-800 text-white py-1 relative'>
                 <div className="mycontainer flex justify-between items-center px-4 py-5 h-14">
 
                     <div className="logo font-bold text-white text-2xl cursor-pointer" onClick={() => navigate('/')}>
@@ -39,13 +48,13 @@ const Navbar = () => {
                         )}
                     </div>
 
-                    <div className={`flex-col md:flex-row gap-4 md:gap-4 justify-center items-center absolute md:static top-14 left-0 w-full md:w-auto bg-slate-800 md:bg-transparent px-6 py-4 md:p-0 transition-all duration-300 ease-in-out
-                        ${isOpen ? 'flex' : 'hidden'} md:flex`}>
+                    <div className={`md:flex gap-4 justify-center items-center absolute md:static top-full left-0 w-full md:w-auto bg-slate-800 md:bg-transparent px-6 py-4 md:p-0 transition-all duration-300 ease-in-out z-40
+                        ${isOpen ? 'flex flex-col' : 'hidden'} md:flex md:flex-row`}>
 
                         <Link
                             to="/subscription"
                             onClick={() => setIsOpen(false)}
-                            className='hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer'
+                            className='hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer w-full md:w-auto text-center mb-2 md:mb-0'
                         >
                             Subscription
                         </Link>
@@ -56,7 +65,7 @@ const Navbar = () => {
                                     handleLogout();
                                     setIsOpen(false);
                                 }}
-                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer"
+                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer w-full md:w-auto text-center mb-2 md:mb-0"
                             >
                                 Logout
                             </button>
@@ -66,7 +75,7 @@ const Navbar = () => {
                                     navigate('/login');
                                     setIsOpen(false);
                                 }}
-                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer"
+                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer w-full md:w-auto text-center mb-2 md:mb-0"
                             >
                                 Login
                             </button>
@@ -78,7 +87,7 @@ const Navbar = () => {
                                     navigate('/dashboard');
                                     setIsOpen(false);
                                 }}
-                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer"
+                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer w-full md:w-auto text-center mb-2 md:mb-0"
                             >
                                 Dashboard
                             </button>
@@ -86,7 +95,7 @@ const Navbar = () => {
 
                         {isAuthenticated ? (
                             <button
-                                className='cursor-pointer'
+                                className='cursor-pointer w-full md:w-auto flex justify-center md:block mb-2 md:mb-0'
                                 onClick={() => {
                                     navigate('/user');
                                     setIsOpen(false);
@@ -100,7 +109,7 @@ const Navbar = () => {
                                     navigate('/register');
                                     setIsOpen(false);
                                 }}
-                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer"
+                                className="hover:bg-slate-200 font-medium text-lg bg-slate-300 px-3 text-black rounded-xl py-1 cursor-pointer w-full md:w-auto text-center"
                             >
                                 Register
                             </button>

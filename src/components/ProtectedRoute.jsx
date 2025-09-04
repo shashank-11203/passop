@@ -7,8 +7,6 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
 
   if (loading) return <Spinner />
 
-  console.log("ProtectedRoute user:", user);
-
   if (!user) {
     return <Navigate to="/login" replace />;
   }
