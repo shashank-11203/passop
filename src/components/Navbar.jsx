@@ -13,7 +13,9 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         await logout();
-        toast.success("Logged out successfully", { theme: 'dark' });
+        setTimeout(() => {
+            toast.success("Logged out successfully", { theme: 'dark' });
+        }, 200);
         navigate('/login');
     };
 
