@@ -11,43 +11,6 @@ const UserPage = () => {
   const [passwords, setPasswords] = useState([]);
   const [subscriptions, setSubscriptions] = useState([]);
 
-  // useEffect(() => {
-  //   if (!user) return;
-
-  //   const getPasswords = async () => {
-  //     try {
-  //       const passwords = await fetchPasswords();
-  //       setPasswords(passwords);
-  //     } catch (err) {
-  //       console.error("Failed to fetch passwords", err);
-  //       navigate('/login');
-  //     }
-  //   }
-
-  //   const loadSubscriptions = async () => {
-  //     try {
-  //       const res = await fetchSubscription();
-  //       setSubscriptions(res.data.transactions);
-
-  //       const hasPremium = res.data.transactions.some(sub => sub.plan === 'premium' && sub.status === 'active');
-  //       if (hasPremium && user.role !== 'premium') {
-  //         setUser({ ...user, role: 'premium' });
-  //       }
-  //     } catch (err) {
-  //       console.error("Failed to fetch subscriptions", err);
-  //     }
-  //   }
-
-  //   getPasswords();
-  //   loadSubscriptions();
-  // }, [user, loading]);
-
-  useEffect(() => {
-    if (!loading && !user) {
-      navigate('/login');
-    }
-  }, [loading, user, navigate]);
-  
   useEffect(() => {
     if (!user) return;
 
@@ -57,10 +20,7 @@ const UserPage = () => {
         setPasswords(passwords);
       } catch (err) {
         console.error("Failed to fetch passwords", err);
-        // Don't redirect on every error - only on 401
-        if (err.response?.status === 401) {
-          navigate('/login');
-        }
+        navigate('/login');
       }
     }
 
@@ -80,8 +40,7 @@ const UserPage = () => {
 
     getPasswords();
     loadSubscriptions();
-  }, [user]);
-  
+  }, [user, loading]);
 
   if (loading) return <Spinner />;
 
